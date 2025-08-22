@@ -1,14 +1,64 @@
 {
-  "name": "vite_react_shadcn_ts",
-  "private": true,
-  "version": "0.0.0",
+  "name": "boutique-to-box",
+  "private": false,
+  "version": "1.0.0",
+  "description": "AI-Powered End-to-End Fashion Ecosystem with Real-Time 3D Customization & Global Scalability",
   "type": "module",
+  "keywords": [
+    "fashion",
+    "ai",
+    "3d-modeling",
+    "design",
+    "react",
+    "typescript",
+    "tailwindcss",
+    "three.js",
+    "appwrite"
+  ],
+  "homepage": "https://boutique-to-box.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/x0lg0n/Boutique-To-Box.git"
+  },
+  "bugs": {
+    "url": "https://github.com/x0lg0n/Boutique-To-Box/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Siddhartha Kunwar",
+    "email": "kumarsiddharthakain@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "Janvi",
+      "role": "Backend & AI/ML Architecture"
+    },
+    {
+      "name": "Shaifali",
+      "role": "Design & UI/UX"
+    },
+    {
+      "name": "Priyanshu Banshiwal",
+      "role": "Frontend & 3D Development"
+    }
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "build:analyze": "vite build --mode analyze",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --ext ts,tsx --fix",
+    "type-check": "tsc --noEmit",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "prepare": "husky install",
+    "clean": "rm -rf dist node_modules/.vite",
+    "start": "npm run dev"
   },
   "dependencies": {
     "@google-cloud/local-auth": "^3.0.1",
