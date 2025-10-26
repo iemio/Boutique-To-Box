@@ -1,26 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Boutique to Box</title>
-    <meta name="description" content="AI-powered fashion designs tailored to your unique style" />
-    <meta name="author" content="Boutique to Box" />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Boutique to Box</title>
+        <meta
+            name="description"
+            content="AI-powered fashion designs tailored to your unique style"
+        />
+        <meta name="author" content="Boutique to Box" />
 
-    <meta property="og:title" content="Boutique to Box" />
-    <meta property="og:description" content="AI-powered fashion designs tailored to your unique style" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdn.gpteng.co https://unpkg.com https://api.mapbox.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.mapbox.com;
+      img-src 'self' data: blob: https://api.mapbox.com https://cdn.printful.com https://i.pravatar.cc https://images.unsplash.com;
+      connect-src 'self' https://api.appwrite.io https://api.mapbox.com https://api.printful.com https://api.runwayml.com https://trends.google.com https://forecast.amazonaws.com;
+      frame-src 'self' https://api.mapbox.com;
+      font-src 'self' https://fonts.gstatic.com;
+     worker-src 'self' blob:;
+      report-to csp-endpoint
+    "
+        />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+        <meta property="og:title" content="Boutique to Box" />
+        <meta
+            property="og:description"
+            content="AI-powered fashion designs tailored to your unique style"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:image"
+            content="https://lovable.dev/opengraph-image-p98pqg.png"
+        />
 
-  <body>
-    <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@lovable_dev" />
+        <meta
+            name="twitter:image"
+            content="https://lovable.dev/opengraph-image-p98pqg.png"
+        />
+    </head>
+
+    <body>
+        <div id="root"></div>
+        <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+        <script
+            src="https://cdn.gpteng.co/gptengineer.js"
+            type="module"
+        ></script>
+        <script type="module" src="/src/main.tsx"></script>
+    </body>
 </html>

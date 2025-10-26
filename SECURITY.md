@@ -4,10 +4,10 @@
 
 We actively support the following versions of Boutique-To-Box with security updates:
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 1.x.x   | ✅ Yes             |
-| 0.x.x   | ❌ No              |
+| Version | Supported |
+| ------- | --------- |
+| 1.x.x   | ✅ Yes    |
+| 0.x.x   | ❌ No     |
 
 ## 🚨 Reporting a Vulnerability
 
@@ -16,93 +16,129 @@ We take security vulnerabilities seriously. If you discover a security vulnerabi
 ### 1. **DO NOT** create a public GitHub issue
 
 ### 2. Send a detailed report to our security team:
-- **Email**: security@boutique-to-box.com
-- **Subject**: [SECURITY] Brief description of the vulnerability
+
+-   **Email**: security@boutique-to-box.com
+-   **Subject**: [SECURITY] Brief description of the vulnerability
 
 ### 3. Include the following information:
-- **Type of vulnerability** (e.g., XSS, SQL injection, authentication bypass)
-- **Affected component(s)** (frontend, backend, API, etc.)
-- **Steps to reproduce** the vulnerability
-- **Potential impact** of the vulnerability
-- **Suggested fix** (if you have one)
-- **Your contact information** for follow-up questions
+
+-   **Type of vulnerability** (e.g., XSS, SQL injection, authentication bypass)
+-   **Affected component(s)** (frontend, backend, API, etc.)
+-   **Steps to reproduce** the vulnerability
+-   **Potential impact** of the vulnerability
+-   **Suggested fix** (if you have one)
+-   **Your contact information** for follow-up questions
 
 ### 4. Response Timeline
-- **Initial Response**: Within 24 hours
-- **Vulnerability Assessment**: Within 72 hours
-- **Fix Development**: 1-2 weeks (depending on severity)
-- **Public Disclosure**: After fix is deployed and users have time to update
+
+-   **Initial Response**: Within 24 hours
+-   **Vulnerability Assessment**: Within 72 hours
+-   **Fix Development**: 1-2 weeks (depending on severity)
+-   **Public Disclosure**: After fix is deployed and users have time to update
 
 ## 🏆 Security Rewards
 
 We believe in recognizing security researchers who help make our platform safer:
 
 ### Reward Tiers
-- **Critical**: $500 - $2,000
-- **High**: $200 - $500
-- **Medium**: $50 - $200
-- **Low**: $25 - $50
+
+-   **Critical**: $500 - $2,000
+-   **High**: $200 - $500
+-   **Medium**: $50 - $200
+-   **Low**: $25 - $50
 
 ### Qualifying Vulnerabilities
-- Remote code execution
-- SQL injection
-- Cross-site scripting (XSS)
-- Authentication bypass
-- Privilege escalation
-- Data exposure vulnerabilities
-- CSRF with significant impact
+
+-   Remote code execution
+-   SQL injection
+-   Cross-site scripting (XSS)
+-   Authentication bypass
+-   Privilege escalation
+-   Data exposure vulnerabilities
+-   CSRF with significant impact
 
 ### Non-Qualifying Issues
-- Social engineering attacks
-- Physical attacks
-- DoS/DDoS attacks
-- Issues requiring physical access
-- Vulnerabilities in third-party services
-- Issues that require user interaction (like phishing)
+
+-   Social engineering attacks
+-   Physical attacks
+-   DoS/DDoS attacks
+-   Issues requiring physical access
+-   Vulnerabilities in third-party services
+-   Issues that require user interaction (like phishing)
 
 ## 🛡️ Security Best Practices
 
 ### For Contributors
-- **Never commit secrets** (API keys, passwords, tokens) to the repository
-- **Use environment variables** for sensitive configuration
-- **Validate all inputs** on both client and server side
-- **Follow OWASP guidelines** for web application security
-- **Keep dependencies updated** and scan for vulnerabilities
-- **Use HTTPS** for all communications
-- **Implement proper authentication** and authorization
+
+-   **Never commit secrets** (API keys, passwords, tokens) to the repository
+-   **Use environment variables** for sensitive configuration
+-   **Validate all inputs** on both client and server side
+-   **Follow OWASP guidelines** for web application security
+-   **Keep dependencies updated** and scan for vulnerabilities
+-   **Use HTTPS** for all communications
+-   **Implement proper authentication** and authorization
 
 ### For Users
-- **Keep your installation updated** to the latest version
-- **Use strong passwords** and enable 2FA when available
-- **Review permissions** before granting access to third-party integrations
-- **Report suspicious activity** immediately
-- **Use official releases** only from trusted sources
+
+-   **Keep your installation updated** to the latest version
+-   **Use strong passwords** and enable 2FA when available
+-   **Review permissions** before granting access to third-party integrations
+-   **Report suspicious activity** immediately
+-   **Use official releases** only from trusted sources
 
 ## 🔍 Security Measures
 
 ### Code Security
-- **Static Analysis**: Automated security scanning with SonarCloud
-- **Dependency Scanning**: Regular vulnerability checks with Snyk
-- **Code Reviews**: All code changes require security review
-- **Secrets Management**: No hardcoded secrets in codebase
+
+-   **Static Analysis**: Automated security scanning with SonarCloud
+-   **Dependency Scanning**: Regular vulnerability checks with Snyk
+-   **Code Reviews**: All code changes require security review
+-   **Secrets Management**: No hardcoded secrets in codebase
 
 ### Infrastructure Security
-- **HTTPS Everywhere**: All communications encrypted in transit
-- **Secure Headers**: Proper security headers implemented
-- **Rate Limiting**: Protection against brute force attacks
-- **Input Validation**: Comprehensive input sanitization
-- **Authentication**: Secure JWT implementation with proper expiration
+
+-   **HTTPS Everywhere**: All communications encrypted in transit
+-   **Secure Headers**: Proper security headers implemented
+-   **Rate Limiting**: Protection against brute force attacks
+-   **Input Validation**: Comprehensive input sanitization
+-   **Authentication**: Secure JWT implementation with proper expiration
 
 ### Data Protection
-- **Encryption at Rest**: Sensitive data encrypted in database
-- **Access Controls**: Role-based access control (RBAC)
-- **Audit Logging**: Comprehensive logging of security events
-- **Data Minimization**: Only collect necessary user data
-- **GDPR Compliance**: Full compliance with data protection regulations
+
+-   **Encryption at Rest**: Sensitive data encrypted in database
+-   **Access Controls**: Role-based access control (RBAC)
+-   **Audit Logging**: Comprehensive logging of security events
+-   **Data Minimization**: Only collect necessary user data
+-   **GDPR Compliance**: Full compliance with data protection regulations
+
+### Content Security Policy (CSP)
+
+To protect users from cross-site scripting (XSS) and data injection attacks, a **Content Security Policy** has been added in `index.html`.
+
+**Current Mode:** Report-Only
+**Meta Tag Location:** `<head>` of `index.html`
+
+```html
+<meta
+    http-equiv="Content-Security-Policy"
+    content="
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdn.gpteng.co https://unpkg.com https://api.mapbox.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.mapbox.com;
+      img-src 'self' data: blob: https://api.mapbox.com https://cdn.printful.com https://i.pravatar.cc https://images.unsplash.com;
+      connect-src 'self' https://api.appwrite.io https://api.mapbox.com https://api.printful.com https://api.runwayml.com https://trends.google.com https://forecast.amazonaws.com;
+      frame-src 'self' https://api.mapbox.com;
+      font-src 'self' https://fonts.gstatic.com;
+      worker-src 'self' blob:;
+      report-to csp-endpoint
+    "
+/>
+```
 
 ## 🚨 Incident Response
 
 ### In Case of a Security Incident
+
 1. **Immediate containment** of the threat
 2. **Assessment** of the impact and affected systems
 3. **Communication** to affected users within 24 hours
@@ -110,72 +146,84 @@ We believe in recognizing security researchers who help make our platform safer:
 5. **Post-incident review** and security improvements
 
 ### Communication Channels
-- **Status Page**: [status.boutique-to-box.com](https://status.boutique-to-box.com)
-- **Security Announcements**: Via email to registered users
-- **GitHub Security Advisories**: For technical details
-- **Discord Community**: For real-time updates
+
+-   **Status Page**: [status.boutique-to-box.com](https://status.boutique-to-box.com)
+-   **Security Announcements**: Via email to registered users
+-   **GitHub Security Advisories**: For technical details
+-   **Discord Community**: For real-time updates
 
 ## 📋 Security Checklist for Developers
 
 ### Before Committing Code
-- [ ] No hardcoded secrets or API keys
-- [ ] Input validation implemented
-- [ ] Output encoding applied
-- [ ] Authentication checks in place
-- [ ] Authorization properly implemented
-- [ ] Error handling doesn't leak sensitive info
-- [ ] Dependencies are up to date
-- [ ] Security tests written and passing
+
+-   [ ] No hardcoded secrets or API keys
+-   [ ] Input validation implemented
+-   [ ] Output encoding applied
+-   [ ] Authentication checks in place
+-   [ ] Authorization properly implemented
+-   [ ] Error handling doesn't leak sensitive info
+-   [ ] Dependencies are up to date
+-   [ ] Security tests written and passing
 
 ### Before Deploying
-- [ ] Security scan completed
-- [ ] Penetration testing performed
-- [ ] SSL/TLS certificates valid
-- [ ] Security headers configured
-- [ ] Monitoring and alerting set up
-- [ ] Backup and recovery tested
-- [ ] Incident response plan updated
+
+-   [ ] Security scan completed
+-   [ ] Penetration testing performed
+-   [ ] SSL/TLS certificates valid
+-   [ ] Security headers configured
+-   [ ] Monitoring and alerting set up
+-   [ ] Backup and recovery tested
+-   [ ] Incident response plan updated
 
 ## 🔗 Security Resources
 
 ### Internal Resources
-- [Development Security Guide](docs/SECURITY_DEVELOPMENT.md)
-- [API Security Documentation](docs/API_SECURITY.md)
-- [Infrastructure Security](docs/INFRASTRUCTURE_SECURITY.md)
+
+-   [Development Security Guide](docs/SECURITY_DEVELOPMENT.md)
+-   [API Security Documentation](docs/API_SECURITY.md)
+-   [Infrastructure Security](docs/INFRASTRUCTURE_SECURITY.md)
 
 ### External Resources
-- [OWASP Top 10](https://owasp.org/www-project-top-ten/)
-- [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)
-- [CWE/SANS Top 25](https://cwe.mitre.org/top25/)
-- [SANS Secure Coding Practices](https://www.sans.org/white-papers/2172/)
+
+-   [OWASP Top 10](https://owasp.org/www-project-top-ten/)
+-   [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)
+-   [CWE/SANS Top 25](https://cwe.mitre.org/top25/)
+-   [SANS Secure Coding Practices](https://www.sans.org/white-papers/2172/)
 
 ## 📞 Contact Information
 
 ### Security Team
-- **Email**: security@boutique-to-box.com
-- **PGP Key**: [Download Public Key](https://boutique-to-box.com/security/pgp-key.asc)
-- **Response Time**: 24 hours maximum
+
+-   **Email**: security@boutique-to-box.com
+-   **PGP Key**: [Download Public Key](https://boutique-to-box.com/security/pgp-key.asc)
+-   **Response Time**: 24 hours maximum
 
 ### Emergency Contact
+
 For critical security issues requiring immediate attention:
-- **Phone**: +1-555-SECURITY (24/7 hotline)
-- **Signal**: +1-555-SEC-EMER
+
+-   **Phone**: +1-555-SECURITY (24/7 hotline)
+-   **Signal**: +1-555-SEC-EMER
 
 ## 📜 Legal
 
 ### Responsible Disclosure
+
 By reporting vulnerabilities to us, you agree to:
-- Give us reasonable time to fix the issue before public disclosure
-- Not access or modify user data without explicit permission
-- Not perform actions that could harm our users or services
-- Follow all applicable laws and regulations
+
+-   Give us reasonable time to fix the issue before public disclosure
+-   Not access or modify user data without explicit permission
+-   Not perform actions that could harm our users or services
+-   Follow all applicable laws and regulations
 
 ### Safe Harbor
+
 We will not pursue legal action against security researchers who:
-- Follow our responsible disclosure process
-- Act in good faith
-- Don't violate user privacy or disrupt our services
-- Don't access data beyond what's necessary to demonstrate the vulnerability
+
+-   Follow our responsible disclosure process
+-   Act in good faith
+-   Don't violate user privacy or disrupt our services
+-   Don't access data beyond what's necessary to demonstrate the vulnerability
 
 ---
 
